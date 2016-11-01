@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package>
+  <name>jaguar_control</name>
+  <version>0.0.0</version>
+  <description>DrRobot Jaguar controller configurations</description>
+
+  <maintainer email="gstavrinos@iit.demokritos.gr">gstavrinos</maintainer>
+
+
+  <!-- One license tag required, multiple allowed, one license per tag -->
+  <!-- Commonly used license strings: -->
+  <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
+  <license>TODO</license>
+
+  <url type="repository">http://github.com/gstavrinos/jaguar</url>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roslaunch</build_depend>
+  <run_depend>interactive_marker_twist_server</run_depend>
+  <run_depend>diff_drive_controller</run_depend>
+  <run_depend>joint_state_controller</run_depend>
+  <run_depend>joint_trajectory_controller</run_depend>
+  <run_depend>joy</run_depend>
+  <run_depend>robot_localization</run_depend>
+  <run_depend>rostopic</run_depend>
+  <run_depend>controller_manager</run_depend>
+  <run_depend>teleop_twist_joy</run_depend>
+  <run_depend>twist_mux</run_depend>
+
+  <export>
+  </export>
+</package>

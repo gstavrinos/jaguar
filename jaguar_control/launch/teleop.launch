@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="joystick" default="true" />
+
+  <group ns="joy_teleop">
+
+    <rosparam command="load" file="$(find jaguar_control)/config/teleop.yaml" />
+
+    <node pkg="joy" type="joy_node" name="joy_node"/>
+
+    <node pkg="teleop_twist_joy" type="teleop_node" name="teleop_twist_joy"/>
+  </group>
+
+</launch>
