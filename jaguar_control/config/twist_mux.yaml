@@ -20,4 +20,4 @@ locks:
 - name    : e_stop
   topic   : e_stop
   timeout : 0.0    
-priority: 255
+  priority: 255
