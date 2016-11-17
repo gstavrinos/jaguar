@@ -6,15 +6,15 @@
     <property name="M_PI" value="3.14159"/>
 
     <!-- Wheel Properties -->
-    <xacro:property name="wheel_length" value="0.09"/>
+    <xacro:property name="wheel_length" value="0.085"/>
     <xacro:property name="wheel_radius" value="0.13"/>
 
     <!-- Base Size -->
     <property name="distance_from_ground" value="0.09"/>
     <property name="wheel_base_offset" value="0.03"/>
     <property name="base_x_size" value="${0.615-2*wheel_base_offset}"/>
-    <property name="base_y_size" value="${0.573-wheel_length}"/>
-    <property name="base_z_size" value="${0.265-distance_from_ground}"/>
+    <property name="base_y_size" value="${0.56-wheel_length}"/>
+    <property name="base_z_size" value="${0.255-distance_from_ground}"/>
 
     <!-- Wheel Mounting Positions -->
     <xacro:property name="wheelbase" value="${base_x_size-2*wheel_radius+2*wheel_base_offset}"/>
@@ -24,7 +24,7 @@
     <!-- Laser Position -->
     <property name="laser_x" value="${base_x_size/2-0.0725}"/>
     <property name="laser_y" value="0"/>
-    <property name="laser_z" value="${0.265+0.05}"/>
+    <property name="laser_z" value="${0.255+0.05}"/>
 
     <!-- Laser Size -->
     <property name="laser_x_size" value="0.065"/>
