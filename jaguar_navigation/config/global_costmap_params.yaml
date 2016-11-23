@@ -1,0 +1,10 @@
+global_costmap:
+   global_frame: /map # Indicates the frame for the costmap to operate in.
+   static_map: true # Indicates whether the system uses or not a static map.
+   rolling_window: false # Use a rolling window map.
+   track_unknown_space: false
+
+   plugins:
+   - {name: static_layer, type: "costmap_2d::StaticLayer"}
+   - {name: obstacles_layer, type: "costmap_2d::ObstacleLayer"}
+   - {name: inflater_layer, type: "costmap_2d::InflationLayer"}
