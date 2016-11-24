@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <package>
   <name>jaguar_control</name>
-  <version>0.0.0</version>
-  <description>DrRobot Jaguar controller configurations</description>
+  <version>0.1.0</version>
+  <description>DrRobot's Jaguar 4X4 controller configurations</description>
 
-  <maintainer email="gstavrinos@iit.demokritos.gr">gstavrinos</maintainer>
+  <maintainer email="gstavrinos@iit.demokritos.gr">George Stavrinos</maintainer>
 
 
   <!-- One license tag required, multiple allowed, one license per tag -->
   <!-- Commonly used license strings: -->
   <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
-  <license>TODO</license>
+  <license>BSD</license>
 
   <url type="repository">http://github.com/gstavrinos/jaguar</url>
 

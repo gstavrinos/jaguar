@@ -1,10 +1,9 @@
 <?xml version="1.0"?>
 <package>
     <name>jaguar_description</name>
-    <version>0.0.1</version>
+    <version>1.0.0</version>
     <description>A robot description package for Dr Robot's Jaguar 4x4</description>
 
-    <maintainer email="lohatzis@gmail.com">Chatzinikolaidis Iordanis</maintainer>
     <maintainer email="gstavrinos@iit.demokritos.gr">George Stavrinos</maintainer>
 
     <license>BSD</license>
