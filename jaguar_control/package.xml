@@ -5,15 +5,14 @@
   <description>DrRobot's Jaguar 4X4 controller configurations</description>
 
   <maintainer email="gstavrinos@iit.demokritos.gr">George Stavrinos</maintainer>
+  <author email="gstavrinos@iit.demokritos.gr">George Stavrinos</author>
 
-
-  <!-- One license tag required, multiple allowed, one license per tag -->
-  <!-- Commonly used license strings: -->
-  <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
   <license>BSD</license>
 
+  
+  <url type="website">http://wiki.ros.org/jaguar</url>
+  <url type="bugtracker">https://github.com/gstavrinos/jaguar/issues</url>
   <url type="repository">http://github.com/gstavrinos/jaguar</url>
-
 
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>roslaunch</build_depend>
