@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
     <name>jaguar_description</name>
-    <version>1.0.0</version>
+    <version>0.1.0</version>
     <description>A robot description package for Dr Robot's Jaguar 4x4</description>
 
   <maintainer email="gstavrinos@iit.demokritos.gr">George Stavrinos</maintainer>

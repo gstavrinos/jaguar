@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>jaguar_msgs</name>
-  <version>1.0.0</version>
+  <version>0.1.0</version>
   <description>Messages for DrRobot's Jaguar 4X4</description>
 
   <maintainer email="gstavrinos@iit.demokritos.gr">George Stavrinos</maintainer>
