@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- Run SLAM -->
+    <include file="$(find jaguar_navigation)/launch/gmapping_jaguar_wrapper.launch"/>
+
+    <!-- Run move_base -->
+    <include file="$(find jaguar_navigation)/launch/move_base.launch"/>
+
+</launch>
