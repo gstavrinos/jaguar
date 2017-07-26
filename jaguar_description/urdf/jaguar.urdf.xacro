@@ -2,6 +2,7 @@
 <robot name="jaguar_robot" xmlns:xacro="http://ros.org/wiki/xacro">
     <!-- Included URDF/XACRO Files -->
     <xacro:include filename="$(find jaguar_description)/urdf/wheel.urdf.xacro"/>
+    <xacro:include filename="$(find jaguar_description)/urdf/accessories/3D_camera.urdf.xacro"/>
 
     <property name="M_PI" value="3.14159"/>
 
@@ -153,4 +154,16 @@
     </joint>
 
     <link name="gps_link"/>
+
+    <xacro:if value="$(arg 3D_enabled)">
+
+      <joint name="depth_camera_frame_joint" type="fixed">
+        <origin xyz="0 0 0.525" rpy="0 0 3.14" />
+        <parent link="base_link"/>
+        <child link="depth_camera_link"/>
+      </joint>
+
+      <xacro:depth_camera prefix="depth_camera"/>
+</xacro:if>
+
 </robot>

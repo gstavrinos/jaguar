@@ -2,9 +2,12 @@
 <launch>
 
     <arg name="model" default="$(find jaguar_description)/urdf/jaguar.urdf.xacro"/>
+    <arg name="3D_enabled" default="true"/>
 
-    <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
-    <param name="use_gui" value="false"/>
+    <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)
+    3D_enabled:=$(arg 3D_enabled)
+    " />
+    <param name="use_gui" value="false" />
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
 
