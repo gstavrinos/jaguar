@@ -1,0 +1,9 @@
+<launch>
+
+  <!-- Launch visualizations for the resulting elevation map -->
+  <include file="$(find jaguar_navigation)/launch/visualization.launch" />
+
+  <!-- Launch RViz with the demo configuration -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find jaguar_navigation)/rviz/jaguar_elevation_map_visualization.rviz" />
+
+</launch>

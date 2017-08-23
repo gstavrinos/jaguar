@@ -1,0 +1,21 @@
+point_cloud_topic: "/camera/depth_registered/points"
+map_frame_id: "odom"
+robot_base_frame_id: "base_link"
+robot_pose_with_covariance_topic: "/pose"
+robot_pose_cache_size: 200
+track_point_frame_id: "base_link"
+track_point_x: 0.0
+track_point_y: 0.0
+track_point_z: 0.0
+######
+length_in_x: 6
+length_in_y: 6
+position_x: 0.0
+position_y: 0.0
+resolution: 0.06
+min_variance: 0.000009
+max_variance: 0.01
+mahalanobis_distance_threshold: 2.5
+multi_height_noise: 0.0000009
+surface_normal_estimation_radius: 0.015
+surface_normal_positive_axis: z
