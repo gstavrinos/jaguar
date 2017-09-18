@@ -2,7 +2,8 @@
 <robot name="jaguar_robot" xmlns:xacro="http://ros.org/wiki/xacro">
     <!-- Included URDF/XACRO Files -->
     <xacro:include filename="$(find jaguar_description)/urdf/wheel.urdf.xacro"/>
-    <xacro:include filename="$(find jaguar_description)/urdf/accessories/3D_camera.urdf.xacro"/>
+    <!--<xacro:include filename="$(find jaguar_description)/urdf/accessories/3D_camera.urdf.xacro"/> -->
+    <xacro:include filename="$(find jaguar_description)/urdf/accessories/zed.urdf.xacro"/>
 
     <property name="M_PI" value="3.14159"/>
 
