@@ -11,6 +11,7 @@ def odom_callback(msg):
     msg_ = PoseWithCovarianceStamped()
     msg_.header.stamp = rospy.Time.now()
     msg_.pose = msg.pose
+    msg_.header.frame_id = "odom"
     pose_publisher.publish(msg_)
     time.sleep(3)
 
