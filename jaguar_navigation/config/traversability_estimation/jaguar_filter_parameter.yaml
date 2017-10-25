@@ -15,8 +15,8 @@ traversability_map_filters:
     params:
       map_type: traversability_step
       critical_value: 0.136
-      first_window_radius: 0.5
-      second_window_radius: 0.5
+      first_window_radius: 0.25
+      second_window_radius: 0.25
       critical_cell_number: 4
   - name: roughnessFilter
     type: traversabilityFilters/RoughnessFilter
