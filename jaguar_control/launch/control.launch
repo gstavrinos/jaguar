@@ -1,16 +1,19 @@
 <?xml version="1.0"?>
 <launch>
 
+  <arg name="rulah_simulation" default="false"/>
   <arg name="simulation" default="$(optenv ROBOT_SIMULATION false)"/>
   <arg name="3D_enabled" default="true"/>
   <!-- Load robot description -->
   <!--<include file="$(find jaguar_description)/launch/description.launch" />-->
 
-  <include file="$(find jaguar_gazebo)/launch/multimaster_jaguar.launch">
-    <arg name="gazebo_interface" value="$(find jaguar_control)/config/gazebo_interface.yaml" />
-    <arg name="public_interface" value="$(find jaguar_control)/config/public_interface.yaml" />
-    <arg name="simulation" value="$(arg simulation)"/>
-  </include>
+  <group if="$(arg rulah_simulation)">
+    <include file="$(find jaguar_gazebo)/launch/multimaster_jaguar.launch">
+      <arg name="gazebo_interface" value="$(find jaguar_control)/config/gazebo_interface.yaml" />
+      <arg name="public_interface" value="$(find jaguar_control)/config/public_interface.yaml" />
+      <arg name="simulation" value="$(arg simulation)"/>
+    </include>
+  </group>
 
   <rosparam command="load" file="$(find jaguar_control)/config/control.yaml" />
 
