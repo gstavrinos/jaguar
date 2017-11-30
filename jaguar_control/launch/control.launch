@@ -2,7 +2,7 @@
 <launch>
 
   <arg name="simulation" default="$(optenv ROBOT_SIMULATION false)"/>
-
+  <arg name="3D_enabled" default="true"/>
   <!-- Load robot description -->
   <!--<include file="$(find jaguar_description)/launch/description.launch" />-->
 
