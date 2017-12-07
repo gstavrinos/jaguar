@@ -1,10 +1,14 @@
 # Traversability map filter parameters
 traversability_map_filters:
   - name: surfaceNormalsFilter
-    type: traversabilityFilters/SurfaceNormalsFilter
+    type: gridMapFilters/NormalVectorsFilter
     params:
-      estimation_radius: 0.7
+      estimation_radius: 0.05
+      input_layer: elevation
       surface_normal_positive_axis: "z"
+      output_layers_prefix: surface_normal_
+      radius: 0.05
+      normal_vector_positive_axis: z
   - name: slopeFilter
     type: traversabilityFilters/SlopeFilter
     params:
