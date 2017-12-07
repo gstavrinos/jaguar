@@ -2,6 +2,8 @@
 <robot name="jaguar_robot" xmlns:xacro="http://ros.org/wiki/xacro">
     <!-- Included URDF/XACRO Files -->
     <xacro:include filename="$(find jaguar_description)/urdf/wheel.urdf.xacro"/>
+    <!--<xacro:include filename="$(find jaguar_description)/urdf/accessories/3D_camera.urdf.xacro"/> -->
+    <xacro:include filename="$(find jaguar_description)/urdf/accessories/zed.urdf.xacro"/>
 
     <property name="M_PI" value="3.14159"/>
 
@@ -60,7 +62,7 @@
     </link>
 
     <!-- Interial link stores the robot's inertial information -->
-    <!--<link name="inertial_link">
+    <link name="inertial_link">
         <inertial>
             <mass value="33.455"/>
             <origin xyz="-0.08748 -0.00085 0.09947"/>
@@ -71,7 +73,7 @@
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <parent link="base_link"/>
         <child link="inertial_link"/>
-    </joint> -->
+    </joint>
 
     <!-- IMU exact position is unnecessary thus placed at the center of the platform.-->
     <link name="imu_link"/>
@@ -86,13 +88,13 @@
         <origin xyz="${wheelbase/2} ${track/2} ${wheel_vertical_offset}" rpy="0 0 0"/>
     </xacro:jaguar_wheel>
     <xacro:jaguar_wheel wheel_prefix="front_right">
-        <origin xyz="${wheelbase/2} ${-track/2} ${wheel_vertical_offset}" rpy="0 0 ${M_PI}"/>
+        <origin xyz="${wheelbase/2} ${-track/2} ${wheel_vertical_offset}" rpy="0 0 0"/>
     </xacro:jaguar_wheel>
     <xacro:jaguar_wheel wheel_prefix="rear_left">
         <origin xyz="${-wheelbase/2} ${track/2} ${wheel_vertical_offset}" rpy="0 0 0"/>
     </xacro:jaguar_wheel>
     <xacro:jaguar_wheel wheel_prefix="rear_right">
-        <origin xyz="${-wheelbase/2} ${-track/2} ${wheel_vertical_offset}" rpy="0 0 ${M_PI}"/>
+        <origin xyz="${-wheelbase/2} ${-track/2} ${wheel_vertical_offset}" rpy="0 0 0"/>
     </xacro:jaguar_wheel>
 
     <!-- Laser -->
@@ -124,10 +126,10 @@
     <joint name="camera_joint" type="fixed">
         <origin xyz="${camera_x} ${camera_y} ${camera_z}" rpy="0 0 0"/>
         <parent link="base_link"/>
-        <child link="camera_link"/>
+        <child link="webcamera_link"/>
     </joint>
 
-    <link name="camera_link">
+    <link name="webcamera_link">
         <visual>
             <origin xyz="0 0 0" rpy="0 ${M_PI/2} 0"/>
             <geometry>
@@ -153,4 +155,53 @@
     </joint>
 
     <link name="gps_link"/>
+
+    <xacro:if value="$(arg 3D_enabled)">
+
+      <joint name="camera_frame_joint" type="fixed">
+        <origin xyz="0 0 0.525" rpy="0 0 0 "/>
+        <parent link="base_link"/>
+        <child link="camera_link"/>
+      </joint>
+
+      <xacro:depth_camera prefix="camera"/>
+    </xacro:if>
+
+      <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="imu_controller" filename="libhector_gazebo_ros_imu.so">
+      <robotNamespace>/</robotNamespace>
+      <updateRate>50.0</updateRate>
+      <bodyName>base_link</bodyName>
+      <topicName>imu/data</topicName>
+      <accelDrift>0.005 0.005 0.005</accelDrift>
+      <accelGaussianNoise>0.005 0.005 0.005</accelGaussianNoise>
+      <rateDrift>0.005 0.005 0.005 </rateDrift>
+      <rateGaussianNoise>0.005 0.005 0.005 </rateGaussianNoise>
+      <headingDrift>0.005</headingDrift>
+      <headingGaussianNoise>0.005</headingGaussianNoise>
+    </plugin>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="gps_controller" filename="libhector_gazebo_ros_gps.so">
+      <robotNamespace>/</robotNamespace>
+      <updateRate>40</updateRate>
+      <bodyName>base_link</bodyName>
+      <frameId>base_link</frameId>
+      <topicName>navsat/fix</topicName>
+      <velocityTopicName>navsat/vel</velocityTopicName>
+      <referenceLatitude>49.9</referenceLatitude>
+      <referenceLongitude>8.9</referenceLongitude>
+      <referenceHeading>0</referenceHeading>
+      <referenceAltitude>0</referenceAltitude>
+      <drift>0.0001 0.0001 0.0001</drift>
+    </plugin>
+  </gazebo>
+
 </robot>

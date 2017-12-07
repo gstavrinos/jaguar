@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="depth_camera">
+
+  <xacro:macro name="depth_camera" params="prefix:=depth_camera">
+    <link name="${prefix}_link">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.07 0.3 0.09"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.07 0.3 0.09"/>
+        </geometry>
+      </collision>
+    </link>
+  </xacro:macro>
+</robot>

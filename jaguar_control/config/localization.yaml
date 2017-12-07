@@ -2,25 +2,36 @@ odom_frame: odom
 base_link_frame: base_link
 world_frame: odom
 
-two_d_mode: true
+two_d_mode: false
 
 frequency: 50
 
 odom0: jaguar_velocity_controller/odom
-odom0_config: [true, true, false,
-               false, false, true,
+odom0_config: [false, false, false,
+               false, false, false,
                true, true, true,
                false, false, true,
                false, false, false]
-odom0_differential: true
+odom0_differential: false
 odom0_queue_size: 10
+
+odom1: zed/odom
+odom1_config: [true,  true,  false,
+              false, false, false,
+              true, true, true,
+              false, false, true,
+              false, false, false]
+odom1_differential: false
+odom1_queue_size: 10
 
 imu0: imu/data
 imu0_config: [false, false, false,
               true, true, true,
               false, false, false,
               true, true, true,
-              false, false, false]
-imu0_differential: true
+              true, true, true]
+imu0_differential: false
 imu0_queue_size: 10
 imu0_remove_gravitational_acceleration: true
+
+

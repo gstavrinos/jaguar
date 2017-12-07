@@ -1,4 +1,12 @@
 topics:
+- name    : safety_controller
+  topic   : safety_controller/cmd_vel
+  timeout : 1.5
+  priority: 100
+- name    : assisted_teleop
+  topic   : assisted_teleop/cmd_vel
+  timeout : 0.5
+  priority: 50
 - name    : joy
   topic   : joy_teleop/cmd_vel
   timeout : 0.5
@@ -19,5 +27,5 @@ topics:
 locks:
 - name    : e_stop
   topic   : e_stop
-  timeout : 0.0    
+  timeout : 0.0
   priority: 255

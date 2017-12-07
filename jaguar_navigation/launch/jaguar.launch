@@ -1,0 +1,15 @@
+<launch>
+
+  <!-- Elevation mapping node -->
+  <node pkg="elevation_mapping" type="elevation_mapping" name="elevation_mapping" output="screen">
+    <rosparam command="load" file="$(find jaguar_navigation)/config/jaguar.yaml" />
+    <rosparam command="load" file="$(find jaguar_navigation)/config/sensor_processors/jaguar_stereo_camera.yaml" />
+  </node>
+
+  <!-- Launch visualizations for the resulting elevation map -->
+  <include file="$(find jaguar_navigation)/launch/visualization.launch" />
+
+  <!-- Launch RViz with the demo configuration -->
+  <!--node name="rviz" pkg="rviz" type="rviz" args="-d $(find jaguar_navigation)/rviz/huskara_elevation_map_visualization.rviz" /> -->
+
+</launch>
