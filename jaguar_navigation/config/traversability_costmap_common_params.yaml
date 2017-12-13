@@ -24,3 +24,7 @@ footprint_padding: 0.1
 
 plugins:
   - {name: traversability_layer, type: "traversability_layer::TraversabilityLayer"}
+  - {name: inflater_layer, type: "costmap_2d::InflationLayer"}
+
+inflater_layer:
+ inflation_radius: 0.2
