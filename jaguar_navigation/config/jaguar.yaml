@@ -25,3 +25,7 @@ multi_height_noise: 0.0000009
 #surface_normal_positive_axis: z
 enable_visibility_cleanup: true
 visibility_cleanup_rate: 1.5
+
+# https://github.com/ethz-asl/elevation_mapping/issues/33
+# This fixes the latency problem with elevation mapping!
+# (catkin build elevation_mapping -DCMAKE_BUILD_TYPE=Release)
