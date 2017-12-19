@@ -2,7 +2,7 @@ point_cloud_topic: /camera/depth/points # "/pointcloud_sampler/pointcloud" #"zed
 map_frame_id: "/base_link"
 robot_base_frame_id: "/base_link"
 robot_pose_with_covariance_topic: "/pose"
-robot_pose_cache_size: 200
+robot_pose_cache_size: 1 #200
 track_point_frame_id: "/base_link"
 sensor_frame_id: "/camera_link"
 min_update_rate: 5.0

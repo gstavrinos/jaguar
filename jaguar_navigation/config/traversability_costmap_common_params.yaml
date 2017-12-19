@@ -27,4 +27,4 @@ plugins:
   - {name: inflater_layer, type: "costmap_2d::InflationLayer"}
 
 inflater_layer:
- inflation_radius: 0.2
+ inflation_radius: 0.15
