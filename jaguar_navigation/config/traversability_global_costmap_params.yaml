@@ -1,10 +1,12 @@
 global_costmap:
-   global_frame: /map # Indicates the frame for the costmap to operate in.
-   static_map: true # Indicates whether the system uses or not a static map.
-   rolling_window: false # Use a rolling window map.
+   global_frame: /odom # Indicates the frame for the costmap to operate in.
+   static_map: false # Indicates whether the system uses or not a static map.
+   rolling_window: true # Use a rolling window map.
    track_unknown_space: false
+   width: 100
+   height: 100
 
    plugins:
-    - {name: static_layer, type: "costmap_2d::StaticLayer"}
+    #- {name: static_layer, type: "costmap_2d::StaticLayer"}
     - {name: traversability_layer, type: "traversability_layer::TraversabilityLayer"}
     - {name: inflater_layer, type: "costmap_2d::InflationLayer"}
