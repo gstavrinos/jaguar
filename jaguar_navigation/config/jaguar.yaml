@@ -18,7 +18,7 @@ position_x: 0.0
 position_y: 0.0
 resolution: 0.2 # at 0.06 for better analysis & at 0.2 to visualize traversability
 min_variance: 0.000009
-max_variance: 0.01
+max_variance: 0.2
 mahalanobis_distance_threshold: 2.5
 multi_height_noise: 0.0000009
 #surface_normal_estimation_radius: 0.015
