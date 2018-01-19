@@ -105,7 +105,9 @@
     </joint>
 
     <link name="laser_link">
-        <visual>
+        <!-- Removing the laser visual and collision properties
+        because they affect the simulated pointcloud -->
+        <!--<visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
                 <box size="${laser_x_size} ${laser_y_size} ${laser_z_size}"/>
@@ -113,13 +115,13 @@
             <material name="blue">
                 <color rgba="0 0 255 0.8"/>
             </material>
-        </visual>
-        <collision>
+        </visual>-->
+        <!--<collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
                 <box size="${laser_x_size} ${laser_y_size} ${laser_z_size}"/>
             </geometry>
-        </collision>
+        </collision>-->
     </link>
 
     <!-- Camera -->
@@ -142,7 +144,31 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 ${M_PI/2} 0"/>
             <geometry>
-                <cylinder length="0.1" radius="${0.025/2}"/>
+                <cylinder length="${camera_length}" radius="${camera_radius}"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="depth_camera_pole_joint" type="fixed">
+        <origin xyz="0 0 0.38" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="depth_camera_pole_link"/>
+    </joint>
+
+    <link name="depth_camera_pole_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.2625" radius="0.015"/>
+            </geometry>
+            <material name="black">
+                <color rgba="0 0 0 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.2625" radius="0.015"/>
             </geometry>
         </collision>
     </link>
