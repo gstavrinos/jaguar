@@ -20,7 +20,7 @@ def trav_callback(input_tm_):
     global odom, dir_, file_id
     resolution = input_tm_.info.resolution;
     trav = ['traversability_slope', 'traversability_step', 'traversability_roughness']
-    pos = [odom.pose.pose.position.x, odom.pose.pose.position.z, odom.pose.pose.position.y]
+    pos = [odom.pose.pose.position.x, odom.pose.pose.position.y, odom.pose.pose.position.z]
     slope = []
     step = []
     roughness = []
