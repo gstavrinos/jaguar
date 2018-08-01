@@ -7,7 +7,7 @@
   </node>
 
   <node pkg="jaguar_navigation" type="pose_for_odom.py" name="pose_for_odom" output="screen">
-    <param name="odom_topic" type="string" value="/odom/perfect" />
+    <param name="odom_topic" type="string" value="/odometry/filtered" />
   </node>
 
 

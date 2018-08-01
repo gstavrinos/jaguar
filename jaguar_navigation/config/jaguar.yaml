@@ -1,4 +1,4 @@
-point_cloud_topic: /camera/depth/points # "/pointcloud_sampler/pointcloud" #"zed/point_cloud/cloud_registered"
+point_cloud_topic: "/zed/point_cloud/cloud_registered" #/camera/depth/points # "/pointcloud_sampler/pointcloud" #"/zed/point_cloud/cloud_registered"
 map_frame_id: "/base_link"
 robot_base_frame_id: "/base_link"
 robot_pose_with_covariance_topic: "/pose"
