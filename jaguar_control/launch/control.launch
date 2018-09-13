@@ -21,9 +21,22 @@
         args="jaguar_joint_publisher jaguar_velocity_controller --shutdown-timeout 3" output="screen"/>
 
   <!-- Start EKF for localization -->
-  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
+<!--  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
     <rosparam command="load" file="$(find jaguar_control)/config/localization.yaml" />
   </node>
+
+-->
+  <rosparam command="load" file="$(find jaguar_control)/config/dual_ekf_localization.yaml" />
+
+  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_se_odom" clear_params="true"/>
+
+  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_se_map" clear_params="true">
+    <remap from="gps_status" to="odometry/filtered_map"/>
+  </node>
+
+  <node pkg="robot_localization" type="navsat_transform_node" name="navsat_transform" clear_params="true">
+    <remap from="gps_status" to="odometry/filtered_map"/>
+</node>
 
 <!--
   <node pkg="interactive_marker_twist_server" type="marker_server" name="twist_marker_server" output="screen"/>
