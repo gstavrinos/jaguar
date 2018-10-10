@@ -3,7 +3,7 @@
 
 <!--     <node pkg="tf" type="static_transform_publisher" name="map_transform" args="0 0 0 0 0 0 /map /odom  100"/>
  -->
-    <arg name="no_static_map" default="false"/>
+    <arg name="no_static_map" default="true"/>
 
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
         <param name="base_global_planner" value="navfn/NavfnROS"/> 
@@ -16,7 +16,7 @@
 
 
 
-        <remap from="/odom" to="/odometry/filtered" />
+        <!-- <remap from="/odom" to="/odometry/filtered" /> -->
         <!-- <param name="base_local_planner"  value="base_local_planner/TrajectoryPlannerROS"/> -->
 
         <!-- <remap from="map" to="/projected_map"/> -->

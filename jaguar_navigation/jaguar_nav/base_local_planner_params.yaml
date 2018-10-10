@@ -1,11 +1,11 @@
 controller_frequency: 5.0
-recovery_behaviour_enabled: true
+recovery_behaviour_enabled: false
 
 DWAPlannerROS:
 # TrajectoryPlannerROS:
   acc_lim_x: 2.0
   acc_lim_y: 0.0
-  acc_lim_theta: 3.0
+  acc_lim_theta: 2.0
 
   max_vel_x: 0.4
   min_vel_x: 0.0
@@ -15,16 +15,16 @@ DWAPlannerROS:
   escape_vel: -0.15
   
   # holonomic_robot: true
-  # sim_time: 2.0
+  sim_time: 2.0
   
-  # dwa: true
+  dwa: true
 
-  max_vel_trans: 0.4
+  max_vel_trans: 0.2
   min_vel_trans: 0.15
-  max_vel_theta: 0.4
+  max_vel_theta: 0.2
   min_vel_theta: 0.15
 
   # Goal Tolerance Parameters
-  yaw_goal_tolerance: 0.5
-  xy_goal_tolerance: 1.0
+  yaw_goal_tolerance: 0.3
+  xy_goal_tolerance: 0.2
   latch_xy_goal_tolerance: false
