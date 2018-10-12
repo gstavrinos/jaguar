@@ -1,5 +1,8 @@
 controller_frequency: 5.0
-recovery_behaviour_enabled: false
+# planner_patience: 2.0
+# oscillation_timeout: 10.0
+# oscillation_distance: 0.2
+recovery_behaviour_enabled: true
 
 DWAPlannerROS:
 # TrajectoryPlannerROS:
@@ -15,9 +18,9 @@ DWAPlannerROS:
   escape_vel: -0.15
   
   # holonomic_robot: true
-  sim_time: 2.0
+  # sim_time: 2.0
   
-  dwa: true
+  # dwa: true
 
   max_vel_trans: 0.2
   min_vel_trans: 0.15

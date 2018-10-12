@@ -1,25 +1,14 @@
 <?xml version="1.0"?>
 <launch>
 
-<!--     <node pkg="tf" type="static_transform_publisher" name="map_transform" args="0 0 0 0 0 0 /map /odom  100"/>
- -->
-    <arg name="no_static_map" default="true"/>
-
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
-        <param name="base_global_planner" value="navfn/NavfnROS"/> 
+        <!-- <param name="base_global_planner" value="navfn/NavfnROS"/>  -->
         <param name="base_local_planner"  value="dwa_local_planner/DWAPlannerROS"/>
         <rosparam file="$(find jaguar_navigation)/jaguar_nav/costmap_common_params.yaml" command="load" ns="global_costmap" />
         <rosparam file="$(find jaguar_navigation)/jaguar_nav/costmap_common_params.yaml" command="load" ns="local_costmap" />
         <rosparam file="$(find jaguar_navigation)/jaguar_nav/local_costmap_params.yaml" command="load" />
         <rosparam file="$(find jaguar_navigation)/jaguar_nav/global_costmap_params.yaml" command="load" />
         <rosparam file="$(find jaguar_navigation)/jaguar_nav/base_local_planner_params.yaml" command="load" />
-
-
-
-        <!-- <remap from="/odom" to="/odometry/filtered" /> -->
-        <!-- <param name="base_local_planner"  value="base_local_planner/TrajectoryPlannerROS"/> -->
-
-        <!-- <remap from="map" to="/projected_map"/> -->
     </node>
 
 

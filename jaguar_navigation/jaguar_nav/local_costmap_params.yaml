@@ -1,23 +1,48 @@
 local_costmap:
   global_frame: odom
   robot_base_frame: base_link
-  update_frequency: .3.0
+  update_frequency: 25.0
   publish_frequency: 2.0
   rolling_window: true
   width: 5.0
   height: 5.0
-  resolution: 0.025
-  # origin_x: -2.0
-  # origin_y: -2.0
+  resolution: 0.03
+  origin_x: 0
+  origin_y: 0
 
-  static_map: true
-  map_topic: projected_map
-#   observation_sources: point_cloud_sensor
-#   point_cloud_sensor: {
-#   sensor_frame: base_link,
-#   data_type: PointCloud2,
-#   topic: camera/depth/points,
-#   marking: true,
-#   clearing: true,
-#   # obstacle_height_min: 0.5 
-# }
+  static_map: false
+  #map_topic: map
+  subscribe_to_updates: false
+  plugins: []
+  # unknown_cost_value: -1
+
+  plugins:
+    - {name: obstacles_layer, type: "costmap_2d::ObstacleLayer"}
+    - {name: inflater_layer, type: "costmap_2d::InflationLayer"}
+    # - {name: clearing_layer, type: "costmap_2d::VoxelLayer"}
+
+  # obstacles_layer:
+  #   observation_sources: point_cloud_sensor
+  #   point_cloud_sensor: {
+  #   sensor_frame: camera_link,
+  #   data_type: PointCloud2,
+  #   topic: /pointcloud_sampler/pointcloud,
+  #   marking: false,
+  #   clearing: true,
+  # }
+
+  obstacles_layer:
+    observation_sources: point_cloud_sensor
+    point_cloud_sensor: {
+    sensor_frame: base_link,
+    data_type: PointCloud2,
+    topic: pointcloud_sampler/pointcloud,
+    marking: true,
+    clearing: false,
+    raytrace_range: 5.0,
+    max_obstacle_height: 0.5,
+    min_obstacle_height: 0.1
+  }
+
+  inflater_layer:
+   inflation_radius: 0.2
