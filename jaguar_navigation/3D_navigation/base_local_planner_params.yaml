@@ -31,3 +31,6 @@ DWAPlannerROS:
   yaw_goal_tolerance: 0.3
   xy_goal_tolerance: 0.2
   latch_xy_goal_tolerance: false
+  publish_cost_grid_pc: true
+  publish_traj_pc: true
+
