@@ -1,5 +1,5 @@
 global_costmap:
-   global_frame: /map # Indicates the frame for the costmap to operate in.
+   global_frame: map # Indicates the frame for the costmap to operate in.
    static_map: true # Indicates whether the system uses or not a static map.
    rolling_window: false # Use a rolling window map.
    track_unknown_space: false
