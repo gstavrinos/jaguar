@@ -61,7 +61,7 @@ local_costmap:
     scan_clearing: {
     sensor_frame: laser_link,
     data_type: LaserScan,
-    topic: /scan,
+    topic: /base_scan,
     marking: false,
     clearing: true,
     raytrace_range: 5.0,
