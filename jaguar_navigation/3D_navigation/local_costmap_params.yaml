@@ -45,7 +45,7 @@ local_costmap:
   #   min_obstacle_height: -1.1,
   # }
 
-    obstacles_layer:
+  obstacles_layer:
     observation_sources: scan scan_clearing
 
     scan: {
