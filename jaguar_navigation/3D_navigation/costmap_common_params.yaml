@@ -1,7 +1,7 @@
 # Indicates the transformation frame of the robot’s base link.
 robot_base_frame: base_link # Default.
 # The frequency in Hz for the map to be updated.
-update_frequency: 10.0 # Default.
+update_frequency: 1.0 # Default.
 # The frequency in Hz for the map to be publish display information.
 publish_frequency: 5.0
 # Specifies the delay in transform (tf) data that is tolerable in seconds.
@@ -23,18 +23,18 @@ footprint_padding: 0.1
 #     track_unknown_space: true
 #     recovery_behaviors: []
 
-# recovery_behaviors: [
-#     {name: conservative_clear, type: clear_costmap_recovery/ClearCostmapRecovery},
-#     {name: aggressive_clear, type: clear_costmap_recovery/ClearCostmapRecovery},
-#     {name: super_conservative_reset ,type: 'clear_costmap_recovery/ClearCostmapRecovery'},
-#     {name: 'move_slow_and_clear', type: 'move_slow_and_clear/MoveSlowAndClear'}
-# ]
+recovery_behaviors: [
+#    {name: conservative_clear, type: clear_costmap_recovery/ClearCostmapRecovery},
+    {name: aggressive_clear, type: clear_costmap_recovery/ClearCostmapRecovery},
+#    {name: super_conservative_reset ,type: 'clear_costmap_recovery/ClearCostmapRecovery'},
+#    {name: 'move_slow_and_clear', type: 'move_slow_and_clear/MoveSlowAndClear'}
+]
 
 # super_conservative_reset:
 #   reset_distance: 3.0
 
-# aggressive_reset:
-#   reset_distance: 0.5
+aggressive_reset:
+  reset_distance: 0.5
 
 # move_slow_and_clear:
 #   clearing_distance: 0.5

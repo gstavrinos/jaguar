@@ -11,5 +11,4 @@
         <rosparam file="$(find jaguar_navigation)/3D_navigation/base_local_planner_params.yaml" command="load" />
     </node>
 
-
 </launch>
