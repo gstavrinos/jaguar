@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <launch>
-    
+
   <arg name="robot_name" default="jaguar"/>
     <arg name="model" default="$(find jaguar_description)/urdf/jaguar.urdf.xacro"/>
-    <arg name="3D_enabled" default="true"/>
-    <arg name="viper" default="false"/>
+    <arg name="3D_enabled" default="false"/>
+    <arg name="viper" default="true"/>
 
     <param name="robot_description" command="$(find xacro)/xacro '$(arg model)'
     3D_enabled:=$(arg 3D_enabled) viper:=$(arg viper) base_link_frame:=base_link
@@ -14,3 +14,4 @@
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
 
 </launch>
+
