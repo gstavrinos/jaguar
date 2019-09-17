@@ -1,7 +1,7 @@
 local_costmap:
   global_frame: odom
   robot_base_frame: base_link
-  # update_frequency: 10.0
+  update_frequency: 25.0
   publish_frequency: 2.0
   rolling_window: true
   width: 5.0
@@ -74,3 +74,4 @@ local_costmap:
 
   inflater_layer:
    inflation_radius: 0.0
+
