@@ -1,0 +1,36 @@
+controller_frequency: 5.0
+# planner_patience: 2.0
+# oscillation_timeout: 10.0
+# oscillation_distance: 0.2
+recovery_behaviour_enabled: true
+
+DWAPlannerROS:
+# TrajectoryPlannerROS:
+  acc_lim_x: 2.0
+  acc_lim_y: 0.0
+  acc_lim_theta: 2.0
+
+  max_vel_x: 0.4
+  min_vel_x: 0.0
+  max_vel_y: 0.0
+  min_vel_y: 0.0
+
+  escape_vel: -0.15
+  
+  # holonomic_robot: true
+  # sim_time: 2.0
+  
+  # dwa: true
+
+  max_vel_trans: 0.2
+  min_vel_trans: 0.15
+  max_vel_theta: 0.2
+  min_vel_theta: 0.15
+
+  # Goal Tolerance Parameters
+  yaw_goal_tolerance: 0.3
+  xy_goal_tolerance: 0.2
+  latch_xy_goal_tolerance: false
+  publish_cost_grid_pc: true
+  publish_traj_pc: true
+

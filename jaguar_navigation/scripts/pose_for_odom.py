@@ -17,6 +17,7 @@ def odom_callback(msg):
 
 if __name__ == '__main__':
     rospy.init_node('pose_from_odom')
-    rospy.Subscriber('odometry/filtered', Odometry, odom_callback)
+    topic  = rospy.get_param('~odom_topic', 'odometry/filtered')
+    rospy.Subscriber(topic, Odometry, odom_callback)
     pose_publisher = rospy.Publisher('pose', PoseWithCovarianceStamped, queue_size=1);
     rospy.spin()
