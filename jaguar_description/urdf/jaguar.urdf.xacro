@@ -41,6 +41,19 @@
     <!-- Camera Size -->
     <property name="camera_radius" value="${0.025/2}"/>
     <property name="camera_length" value="0.01"/>
+    
+    <!-- Stereo cam mounting pole -->
+    <property name="pole_length" value="0.245"/>
+    <property name="pole_radius" value="0.03"/>
+
+    <!-- GPS mounting pole -->
+    <property name="gps_pole_length" value="0.155"/>
+    <property name="gps_pole_radius" value="0.02"/>
+    <property name="gps_pole_x" value="${-base_x_size/2+0.04}"/>
+    <property name="gps_pole_y" value="${base_y_size/2-0.04}"/>
+    <property name="gps_pole_z" value="${base_z_size+distance_from_ground+gps_pole_length/2}"/>
+    <property name="gps_top_plate_length" value="0.01"/>
+    <property name="gps_top_plate_radius" value="0.03"/>
 
     <!-- Base link is the center of the robot's bottom plate -->
     <link name="base_link">
@@ -107,21 +120,21 @@
     <link name="laser_link">
         <!-- Removing the laser visual and collision properties
         because they affect the simulated pointcloud -->
-        <!--<visual>
+        <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
                 <box size="${laser_x_size} ${laser_y_size} ${laser_z_size}"/>
             </geometry>
-            <material name="blue">
-                <color rgba="0 0 255 0.8"/>
+            <material name="black">
+                <color rgba="0 0 0 0.8"/>
             </material>
-        </visual>-->
-        <!--<collision>
+        </visual>
+        <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
                 <box size="${laser_x_size} ${laser_y_size} ${laser_z_size}"/>
             </geometry>
-        </collision>-->
+        </collision>
     </link>
 
     <!-- Camera -->
@@ -150,16 +163,16 @@
     </link>
 
     <joint name="depth_camera_pole_joint" type="fixed">
-        <origin xyz="0 0 0.38" rpy="0 0 0"/>
+        <origin xyz="0 0 ${base_z_size+distance_from_ground+pole_length/2}" rpy="0 0 0"/>
         <parent link="base_link"/>
         <child link="depth_camera_pole_link"/>
     </joint>
-
+    
     <link name="depth_camera_pole_link">
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <cylinder length="0.2625" radius="0.015"/>
+                <cylinder length="${pole_length}" radius="${pole_radius}"/>
             </geometry>
             <material name="black">
                 <color rgba="0 0 0 1"/>
@@ -168,15 +181,62 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <cylinder length="0.2625" radius="0.015"/>
+                <cylinder length="${pole_length}" radius="${pole_radius}"/>
             </geometry>
         </collision>
     </link>
 
-    <!-- GPS exact position is unnecessary thus placed at the center of the platform. -->
-    <joint name="gps_joint" type="fixed">
-        <origin xyz="0 0 ${base_z_size}" rpy="0 0 0"/>
+    <joint name="gps_pole_joint" type="fixed">
+        <origin xyz="${gps_pole_x} ${gps_pole_y} ${gps_pole_z}" rpy="0 0 0"/>
         <parent link="base_link"/>
+        <child link="gps_pole_link"/>
+    </joint>
+
+    <link name="gps_pole_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="${gps_pole_length}" radius="${gps_pole_radius}"/>
+            </geometry>
+            <material name="black">
+                <color rgba="0 0 0 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="${gps_pole_length}" radius="${gps_pole_radius}"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="gps_top_plate_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="${gps_top_plate_length}" radius="${gps_top_plate_radius}"/>
+            </geometry>
+            <material name="black">
+                <color rgba="0 0 0 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="${gps_top_plate_length}" radius="${gps_top_plate_radius}"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="gps_top_plate_joint" type="fixed">
+        <origin xyz="0 0 ${gps_pole_length/2+gps_top_plate_length/2}" rpy="0 0 0"/>
+        <parent link="gps_pole_link"/>
+        <child link="gps_top_plate_link"/>
+    </joint>
+
+    <joint name="gps_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="gps_top_plate_link"/>
         <child link="gps_link"/>
     </joint>
 
@@ -208,8 +268,8 @@
     </link>
 
      <joint name="camera_frame_joint" type="fixed">
-        <origin xyz="0 -0.125 0.525" rpy="0 0 0 "/>
-        <parent link="base_link"/>
+        <origin xyz="0 0 ${pole_length/2+0.015}" rpy="0 0 0"/>
+        <parent link="depth_camera_pole_link"/>
         <child link="camera_link"/>
       </joint>
 
