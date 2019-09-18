@@ -13,5 +13,7 @@
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
 
+    <node name="viper_glue" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 1 camera_link vipercam/cvm_base_link 100"/>
+
 </launch>
 
